@@ -17,4 +17,12 @@ export const counterSlice = createSlice({
 
 export const {increment, decrement} = counterSlice.actions
 
+export function asyncIncrement() {
+    return (dispatch, getState) => {
+        setTimeout(() => {
+            dispatch(increment())
+        }, 1000)
+    }
+}
+
 export default counterSlice.reducer
